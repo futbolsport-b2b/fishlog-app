@@ -11,7 +11,7 @@ export default function Dashboard() {
 
       {/* Widget Pogodowy */}
       <div className="bg-white p-4 rounded-xl shadow-sm mb-6 border border-gray-100">
-        <h2 className="text-gray-500 text-sm uppercase font-semibold mb-3">Aktualne warunki (Luboń)</h2>
+        <h2 className="text-gray-500 text-sm uppercase font-semibold mb-3">Aktualne warunki (Lokalizacja)</h2>
         <div className="flex justify-between items-center">
           <div>
             <p className="text-4xl font-bold text-gray-800">14°C</p>
@@ -36,7 +36,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* Pływający Przycisk Kamery (FAB) */}
+      {/* PŁYWAJĄCY PRZYCISK KAMERY (FAB) */}
       <button 
         onClick={() => navigate('/camera')}
         className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white rounded-full w-16 h-16 shadow-xl flex items-center justify-center border-4 border-white active:scale-95 transition-transform z-50"
