@@ -1,0 +1,9 @@
+@import base;
+@import components;
+@import utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f9fafb;
+}
