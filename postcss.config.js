@@ -1,6 +1,6 @@
 export default {
   plugins: {
-    '@tailwindcss/postcss': {},
+    '@tailwindcss/postcss': {}, // To jest nowa linijka, której potrzebujesz
     autoprefixer: {},
   },
 }
