@@ -5,31 +5,39 @@ import { Home, Book, Trophy, Map } from 'lucide-react';
 export default function BottomNav() {
   const location = useLocation();
   
-  // Ukrywamy menu, gdy aparat jest włączony, żeby nie zasłaniał widoku
+  // Ukrywamy nawigację w trybie kamery dla pełnego skupienia na zdjęciu
   if (location.pathname === '/camera') return null;
 
+  // Funkcja pomocnicza do sprawdzania, czy dany link jest aktywny
+  const isActive = (path) => location.pathname === path;
+
   return (
-    <nav className="fixed bottom-0 w-full bg-white border-t border-gray-200 flex justify-around items-center py-3 z-50 shadow-lg">
-      <Link to="/" className={`flex flex-col items-center ${location.pathname === '/' ? 'text-blue-600' : 'text-gray-400'}`}>
-        <Home size={24} />
-        <span className="text-[10px] mt-1">Start</span>
+    <nav className="fixed bottom-0 w-full bg-white/90 backdrop-blur-lg border-t border-gray-100 flex justify-around items-center py-3 pb-6 z-50 shadow-[0_-5px_20px_rgba(0,0,0,0.05)]">
+      
+      {/* START */}
+      <Link to="/" className={`flex flex-col items-center transition-colors ${isActive('/') ? 'text-blue-600' : 'text-gray-400'}`}>
+        <Home size={24} strokeWidth={isActive('/') ? 2.5 : 2} />
+        <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Start</span>
       </Link>
       
-      <Link to="/logbook" className={`flex flex-col items-center ${location.pathname === '/logbook' ? 'text-blue-600' : 'text-gray-400'}`}>
-        <Book size={24} />
-        <span className="text-[10px] mt-1">Dziennik</span>
+      {/* DZIENNIK */}
+      <Link to="/logbook" className={`flex flex-col items-center transition-colors ${isActive('/logbook') ? 'text-blue-600' : 'text-gray-400'}`}>
+        <Book size={24} strokeWidth={isActive('/logbook') ? 2.5 : 2} />
+        <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Dziennik</span>
       </Link>
 
-      {/* Miejsce na mapę w przyszłości */}
-      <div className="flex flex-col items-center text-gray-300">
-        <Map size={24} />
-        <span className="text-[10px] mt-1">Mapa</span>
-      </div>
-
-      <Link to="/competitions" className={`flex flex-col items-center ${location.pathname === '/competitions' ? 'text-blue-600' : 'text-gray-400'}`}>
-        <Trophy size={24} />
-        <span className="text-[10px] mt-1">Zawody</span>
+      {/* MAPA */}
+      <Link to="/map" className={`flex flex-col items-center transition-colors ${isActive('/map') ? 'text-blue-600' : 'text-gray-400'}`}>
+        <Map size={24} strokeWidth={isActive('/map') ? 2.5 : 2} />
+        <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Mapa</span>
       </Link>
+
+      {/* ZAWODY */}
+      <Link to="/competitions" className={`flex flex-col items-center transition-colors ${isActive('/competitions') ? 'text-blue-600' : 'text-gray-400'}`}>
+        <Trophy size={24} strokeWidth={isActive('/competitions') ? 2.5 : 2} />
+        <span className="text-[10px] font-bold mt-1 uppercase tracking-tighter">Zawody</span>
+      </Link>
+      
     </nav>
   );
 }
